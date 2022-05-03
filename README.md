@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awesome Books
+# Review To Do List
 
 > This project is to help myself learn advanced topics in JavaScript.
 
