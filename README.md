@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awesome Books
+# Review To-Do List
 
 > This project is to help myself learn advanced topics in JavaScript.
 
@@ -13,7 +13,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://tkz96.github.io/review-to-do-list/)
 
 ### Prerequisites
 
