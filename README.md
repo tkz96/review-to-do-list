@@ -15,6 +15,13 @@
 
 [Live Demo Link](https://tkz96.github.io/review-to-do-list/)
 
+### Snapshots
+
+
+![1](https://user-images.githubusercontent.com/19762548/167163418-774dad32-90d4-47c1-a6bc-80ec5d45cd1f.PNG)
+![2](https://user-images.githubusercontent.com/19762548/167163426-23edc636-e1c3-43af-8d2e-9a90718d2837.PNG)
+
+
 ### Prerequisites
 
 This website does not have any special pre-requisites.<br />
