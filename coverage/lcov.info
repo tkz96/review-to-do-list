@@ -15,14 +15,14 @@ FN:76,(anonymous_11)
 FN:90,(anonymous_12)
 FN:91,(anonymous_13)
 FNF:14
-FNH:3
+FNH:4
 FNDA:1,(anonymous_0)
 FNDA:1,(anonymous_1)
 FNDA:0,clearData
 FNDA:0,updateLS
 FNDA:0,(anonymous_4)
 FNDA:1,(anonymous_5)
-FNDA:0,deleteItem
+FNDA:1,deleteItem
 FNDA:0,(anonymous_7)
 FNDA:0,(anonymous_8)
 FNDA:0,addTask
@@ -46,7 +46,7 @@ DA:37,0
 DA:41,1
 DA:42,1
 DA:43,1
-DA:47,0
+DA:47,1
 DA:51,1
 DA:52,0
 DA:53,0
@@ -77,7 +77,7 @@ DA:92,0
 DA:93,0
 DA:100,1
 LF:46
-LH:16
+LH:17
 BRDA:19,0,0,0
 BRDA:19,0,1,0
 BRDA:20,1,0,0

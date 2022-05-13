@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652483271645" clover="3.2.0">
-  <project timestamp="1652483271645" name="All files">
-    <metrics statements="46" coveredstatements="16" conditionals="12" coveredconditionals="0" methods="14" coveredmethods="3" elements="72" coveredelements="19" complexity="0" loc="46" ncloc="46" packages="1" files="1" classes="1"/>
+<coverage generated="1652483572542" clover="3.2.0">
+  <project timestamp="1652483572542" name="All files">
+    <metrics statements="46" coveredstatements="17" conditionals="12" coveredconditionals="0" methods="14" coveredmethods="4" elements="72" coveredelements="21" complexity="0" loc="46" ncloc="46" packages="1" files="1" classes="1"/>
     <file name="Tasks.js" path="C:\Users\Talha\Desktop\Microverse stuff\Module 2\review-to-do-list\src\Tasks.js">
-      <metrics statements="46" coveredstatements="16" conditionals="12" coveredconditionals="0" methods="14" coveredmethods="3"/>
+      <metrics statements="46" coveredstatements="17" conditionals="12" coveredconditionals="0" methods="14" coveredmethods="4"/>
       <line num="2" count="1" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
       <line num="8" count="1" type="stmt"/>
@@ -20,7 +20,7 @@
       <line num="41" count="1" type="stmt"/>
       <line num="42" count="1" type="stmt"/>
       <line num="43" count="1" type="stmt"/>
-      <line num="47" count="0" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
       <line num="51" count="1" type="stmt"/>
       <line num="52" count="0" type="stmt"/>
       <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>

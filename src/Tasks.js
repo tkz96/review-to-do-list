@@ -94,7 +94,7 @@ const clear = () => {
 };
 
 export {
-  addItem, tasksArray, addTask, editTasks, check, clear, Task,
+  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task,
 };
 
 populateList(tasksArray);

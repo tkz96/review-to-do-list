@@ -1,6 +1,6 @@
 // const assert = require('assert');
 
-import { addItem, tasksArray } from '../Tasks.js';
+import { addItem, deleteItem, tasksArray } from '../Tasks.js';
 
 describe('Tests', () => {
   test('add item to array', () => {
@@ -11,5 +11,10 @@ describe('Tests', () => {
       index: 1,
     };
     expect(tasksArray).toEqual([expected]);
+  });
+
+  test('delete item from array', () => {
+    deleteItem(0);
+    expect(tasksArray).toEqual([]);
   });
 });
