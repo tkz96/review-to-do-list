@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-mutable-exports
 let tasksArray = [];
-// const input = document.querySelector('.input');
+const input = document.querySelector('.input');
 const todoList = document.querySelector('.todo-list');
 
 class Task {
@@ -20,12 +20,12 @@ const populateList = (tasksArray) => {
     <div class="task-text ${tasksArray[i].completed ? 'line' : ''}" contenteditable="true" data_id='${i}'>${tasksArray[i].description}</div>
     <i class="fas fa-trash-alt delete" data_id='${i}'></i>
     `;
-    // todoList.appendChild(li);
+    todoList.appendChild(li);
   }
 };
 
 function clearData() {
-  // input.value = '';
+  input.value = '';
 }
 
 function updateLS(tasksArray) {
