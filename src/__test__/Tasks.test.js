@@ -1,6 +1,6 @@
 // const assert = require('assert');
 
-import Task from '../Tasks.js';
+import { addTask } from '../Tasks.js';
 
 describe('Tests', () => {
   const localStorageMock = {
@@ -11,15 +11,15 @@ describe('Tests', () => {
 
   global.localStorage = localStorageMock;
   const tasksArray = [];
-  const taskObj = new Task();
+  // const taskObj = new Task();
 
   test('add item to array', () => {
-    taskObj.addTask('Play');
+    addTask('Play');
     const expected = {
+      complete: false,
       description: 'Play',
       index: 1,
-      complete: false,
     };
-    expect(tasksArray).toEqual([expected]);
+    expect(tasksArray).toBe([expected]);
   });
 });

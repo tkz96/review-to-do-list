@@ -12,7 +12,7 @@
     "start": "webpack serve --open",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,5 @@
 let tasksArray = [];
-const input = document.querySelector('.input');
+// const input = document.querySelector('.input');
 const todoList = document.querySelector('.todo-list');
 
 class Task {
@@ -11,20 +11,20 @@ class Task {
 }
 
 const populateList = (tasksArray) => {
-  todoList.innerHTML = '';
+  // todoList.innerHTML = '';
   for (let i = 0; i < tasksArray.length; i += 1) {
     const li = document.createElement('li');
     li.innerHTML = `
-      <input type="checkbox" class="checkbox" data_id='${i}' ${tasksArray[i].completed ? 'checked' : ''}>
-      <div class="task-text ${tasksArray[i].completed ? 'line' : ''}" contenteditable="true" data_id='${i}'>${tasksArray[i].description}</div>
-      <i class="fas fa-trash-alt delete" data_id='${i}'></i>
+    <input type="checkbox" class="checkbox" data_id='${i}' ${tasksArray[i].completed ? 'checked' : ''}>
+    <div class="task-text ${tasksArray[i].completed ? 'line' : ''}" contenteditable="true" data_id='${i}'>${tasksArray[i].description}</div>
+    <i class="fas fa-trash-alt delete" data_id='${i}'></i>
     `;
-    todoList.appendChild(li);
+    // todoList.appendChild(li);
   }
 };
 
 function clearData() {
-  input.value = '';
+  // input.value = '';
 }
 
 function updateLS(tasksArray) {
@@ -37,25 +37,25 @@ const updateIndex = () => {
   }
 };
 
-function addTask() {
-  if (input.value.trim() !== '') {
-    const task = new Task(input.value);
-    tasksArray.push(task);
-    populateList(tasksArray);
-    updateLS(tasksArray);
-    clearData();
-  }
-}
-
 // delete tasks
-todoList.addEventListener('click', (e) => {
-  if (e.target.className.includes('delete')) {
-    tasksArray.splice(e.target.getAttribute('data_id'), 1);
-    updateIndex();
-    updateLS(tasksArray);
-    e.target.parentNode.remove();
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  todoList.addEventListener('click', (e) => {
+    if (e.target.className.includes('delete')) {
+      tasksArray.splice(e.target.getAttribute('data_id'), 1);
+      updateIndex();
+      updateLS(tasksArray);
+      e.target.parentNode.remove();
+    }
+  });
 });
+
+function addTask(description) {
+  const task = new Task(description);
+  tasksArray.push(task);
+  populateList(tasksArray);
+  updateLS(tasksArray);
+  clearData();
+}
 
 const editTasks = (e) => {
   if (e.target.className.includes('task-text')) {
@@ -85,7 +85,7 @@ const clear = () => {
 };
 
 export {
-  addTask, editTasks, check, clear,
+  addTask, editTasks, check, clear, Task,
 };
 
 populateList(tasksArray);
