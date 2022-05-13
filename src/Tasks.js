@@ -1,4 +1,4 @@
-let tasksArray = JSON.parse(localStorage.getItem('task')) || [];
+let tasksArray = [];
 const input = document.querySelector('.input');
 const todoList = document.querySelector('.todo-list');
 
@@ -84,6 +84,8 @@ const clear = () => {
   populateList(tasksArray);
 };
 
-export { addTask, editTasks, check, clear };
+export {
+  addTask, editTasks, check, clear,
+};
 
 populateList(tasksArray);
