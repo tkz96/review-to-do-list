@@ -1,12 +1,13 @@
+// eslint-disable-next-line import/no-mutable-exports
 let tasksArray = [];
 // const input = document.querySelector('.input');
 const todoList = document.querySelector('.todo-list');
 
 class Task {
   constructor(description) {
-    this.index = tasksArray.length + 1;
-    this.description = description;
     this.completed = false;
+    this.description = description;
+    this.index = tasksArray.length + 1;
   }
 }
 
@@ -37,11 +38,20 @@ const updateIndex = () => {
   }
 };
 
+const addItem = (description) => {
+  const task = new Task(description);
+  tasksArray.push(task);
+};
+
+function deleteItem(targetNode) {
+  tasksArray.splice(targetNode, 1);
+}
+
 // delete tasks
 document.addEventListener('DOMContentLoaded', () => {
   todoList.addEventListener('click', (e) => {
     if (e.target.className.includes('delete')) {
-      tasksArray.splice(e.target.getAttribute('data_id'), 1);
+      deleteItem(e.target.getAttribute('data_id'));
       updateIndex();
       updateLS(tasksArray);
       e.target.parentNode.remove();
@@ -49,9 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-function addTask(description) {
-  const task = new Task(description);
-  tasksArray.push(task);
+function addTask() {
+  addItem();
   populateList(tasksArray);
   updateLS(tasksArray);
   clearData();
@@ -85,7 +94,7 @@ const clear = () => {
 };
 
 export {
-  addTask, editTasks, check, clear, Task,
+  addItem, tasksArray, addTask, editTasks, check, clear, Task,
 };
 
 populateList(tasksArray);
