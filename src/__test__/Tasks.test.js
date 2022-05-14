@@ -11,7 +11,7 @@ describe('Tests Add and Remove item', () => {
     expect(tasksArray).toEqual([expected]);
   });
 
-  test('delete item from array', () => {
+  test('Delete Item From Array', () => {
     deleteItem(0);
     expect(tasksArray).toEqual([]);
   });
