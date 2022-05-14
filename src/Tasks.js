@@ -66,12 +66,22 @@ function addTask() {
   clearData();
 }
 
-const editTasks = (e) => {
-  if (e.target.className.includes('task-text')) {
-    tasksArray[e.target.getAttribute('data_id')].description = e.target.innerText;
-    updateLS(tasksArray);
-  }
-};
+
+const editTasks = (text, task, tasksArray) => {
+  // if (e.target.className.includes('task-text')) {
+  //   tasksArray[e.target.getAttribute('data_id')].description = e.target.innerText;
+  //   updateLS(tasksArray);
+  // }
+  task.description = text.innerHTML;
+  text.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      task.description = text.innerHTML;
+      localStorage.setItem('tasks', JSON.stringify(tasksArray));
+      text.parentElement.classList.remove('inputEdit');
+      text.setAttribute('contenteditable', 'false');
+    }
+  });
+}
 
 const check = (e) => {
   if (e.target.className.includes('checkbox')) {
@@ -94,7 +104,7 @@ const clear = () => {
 };
 
 export {
-  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task,
+  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task
 };
 
 populateList(tasksArray);
