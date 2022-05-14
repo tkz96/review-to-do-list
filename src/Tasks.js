@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-mutable-exports
-const tasksArray = [];
+let tasksArray = [];
 const input = document.querySelector('.input');
 const todoList = document.querySelector('.todo-list');
 
@@ -96,9 +96,8 @@ const check = (e) => {
   updateLS(tasksArray);
 };
 
-const clearItems = () => {
-  // tasksArray = tasksArray.filter((task) => (task.completed === false));
-  tasksArray.filter((task) => (task.completed === false));
+const clearItems = (arr) => {
+  arr = arr.filter((task) => (task.completed === false));
 };
 
 const clear = () => {
@@ -108,7 +107,7 @@ const clear = () => {
 };
 
 export {
-  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task, clearItems,
+  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task, clearItems
 };
 
 populateList(tasksArray);

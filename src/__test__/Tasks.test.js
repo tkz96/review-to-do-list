@@ -70,11 +70,9 @@ describe('clear completed tasks', () => {
     },
   ];
 
-  myTasks = myTasks.filter((task) => !task.completed);
-
   test('Check array length after clearing completed tasks', () => {
     clearItems(myTasks);
-    expect(myTasks).toHaveLength(2);
+    expect(clearItems).toHaveLength(1);
     expect(myTasks[0].index).toBe(1);
   });
 });
