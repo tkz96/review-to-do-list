@@ -3,7 +3,8 @@
 import { addItem, deleteItem, tasksArray } from '../Tasks.js';
 
 describe('Tests', () => {
-  test('add item to array', () => {
+
+  test('Add Item To Array', () => {
     addItem('Play');
     const expected = {
       completed: false,
@@ -13,8 +14,20 @@ describe('Tests', () => {
     expect(tasksArray).toEqual([expected]);
   });
 
-  test('delete item from array', () => {
+  test('Delete Item From Array', () => {
     deleteItem(0);
     expect(tasksArray).toEqual([]);
   });
+
+  test('Edit Task Description', () => {
+    const localStorageMock = {
+      setItem: jest.fn(),
+      getItem: jest.fn()
+    };
+    global.localStorage = localStorageMock;
+  });
+
+  test('Update Task Completed Status', () => {});
+
+  test('Clear All Completed', () => {});
 });

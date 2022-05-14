@@ -87,8 +87,12 @@ const check = (e) => {
   updateLS(tasksArray);
 };
 
-const clear = () => {
+const clearItems = () => {
   tasksArray = tasksArray.filter((task) => (task.completed === false));
+}
+
+const clear = () => {
+  clearItems();
   updateLS(tasksArray);
   populateList(tasksArray);
 };
