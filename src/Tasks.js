@@ -82,8 +82,9 @@ const editTasks = (text, task, tasksArray) => {
   });
 };
 
-const checkItem = (e) => {
-  tasksArray[e.target.getAttribute('data_id')].completed = e.target;
+const checkItem = (arr, Idx) => {
+  // myTask[0].completed = !myTask[0].completed;
+  arr[Idx].completed = !arr[Idx].completed;
 };
 
 const check = (e) => {
@@ -95,7 +96,7 @@ const check = (e) => {
     } else {
       text.classList.remove('line');
     }
-    checkItem(e);
+    checkItem(tasksArray, e.target);
   }
   updateLS(tasksArray);
 };
@@ -111,7 +112,7 @@ const clear = () => {
 };
 
 export {
-  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task, clearItems,
+  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task, clearItems, checkItem,
 };
 
 populateList(tasksArray);

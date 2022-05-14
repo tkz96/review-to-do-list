@@ -1,5 +1,5 @@
 import {
-  addItem, deleteItem, tasksArray, editTasks, clearItems,
+  addItem, deleteItem, tasksArray, editTasks, clearItems, checkItem,
 } from '../Tasks.js';
 
 describe('Tests Add and Remove item', () => {
@@ -45,10 +45,10 @@ describe('Edit/Update/Completed', () => {
   });
 
   test('Update Item Completed', () => {
-    // myTask[0].completed = false;
-    // call a function
+    checkItem(myTask, 0);
     expect(myTask[0].completed).toBeTruthy();
-    // call a function
+
+    checkItem(myTask, 0);
     expect(myTask[0].completed).toBeFalsy();
   });
 
