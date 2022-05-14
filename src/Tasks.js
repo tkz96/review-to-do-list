@@ -1,23 +1,24 @@
-let tasksArray = JSON.parse(localStorage.getItem('task')) || [];
+// eslint-disable-next-line import/no-mutable-exports
+const tasksArray = [];
 const input = document.querySelector('.input');
 const todoList = document.querySelector('.todo-list');
 
 class Task {
   constructor(description) {
-    this.index = tasksArray.length + 1;
-    this.description = description;
     this.completed = false;
+    this.description = description;
+    this.index = tasksArray.length + 1;
   }
 }
 
 const populateList = (tasksArray) => {
-  todoList.innerHTML = '';
+  // todoList.innerHTML = '';
   for (let i = 0; i < tasksArray.length; i += 1) {
     const li = document.createElement('li');
     li.innerHTML = `
-      <input type="checkbox" class="checkbox" data_id='${i}' ${tasksArray[i].completed ? 'checked' : ''}>
-      <div class="task-text ${tasksArray[i].completed ? 'line' : ''}" contenteditable="true" data_id='${i}'>${tasksArray[i].description}</div>
-      <i class="fas fa-trash-alt delete" data_id='${i}'></i>
+    <input type="checkbox" class="checkbox" data_id='${i}' ${tasksArray[i].completed ? 'checked' : ''}>
+    <div class="task-text ${tasksArray[i].completed ? 'line' : ''}" contenteditable="true" data_id='${i}'>${tasksArray[i].description}</div>
+    <i class="fas fa-trash-alt delete" data_id='${i}'></i>
     `;
     todoList.appendChild(li);
   }
@@ -37,31 +38,53 @@ const updateIndex = () => {
   }
 };
 
-function addTask() {
-  if (input.value.trim() !== '') {
-    const task = new Task(input.value);
-    tasksArray.push(task);
-    populateList(tasksArray);
-    updateLS(tasksArray);
-    clearData();
-  }
+const addItem = (description) => {
+  const task = new Task(description);
+  tasksArray.push(task);
+};
+
+function deleteItem(targetNode) {
+  tasksArray.splice(targetNode, 1);
 }
 
 // delete tasks
-todoList.addEventListener('click', (e) => {
-  if (e.target.className.includes('delete')) {
-    tasksArray.splice(e.target.getAttribute('data_id'), 1);
-    updateIndex();
-    updateLS(tasksArray);
-    e.target.parentNode.remove();
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  todoList.addEventListener('click', (e) => {
+    if (e.target.className.includes('delete')) {
+      deleteItem(e.target.getAttribute('data_id'));
+      updateIndex();
+      updateLS(tasksArray);
+      e.target.parentNode.remove();
+    }
+  });
 });
 
-const editTasks = (e) => {
-  if (e.target.className.includes('task-text')) {
-    tasksArray[e.target.getAttribute('data_id')].description = e.target.innerText;
-    updateLS(tasksArray);
-  }
+function addTask() {
+  addItem();
+  populateList(tasksArray);
+  updateLS(tasksArray);
+  clearData();
+}
+
+const editTasks = (text, task, tasksArray) => {
+  // if (e.target.className.includes('task-text')) {
+  //   tasksArray[e.target.getAttribute('data_id')].description = e.target.innerText;
+  //   updateLS(tasksArray);
+  // }
+  task.description = text.innerHTML;
+  text.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      task.description = text.innerHTML;
+      localStorage.setItem('tasks', JSON.stringify(tasksArray));
+      text.parentElement.classList.remove('inputEdit');
+      text.setAttribute('contenteditable', 'false');
+    }
+  });
+};
+
+const checkItem = (arr, Idx) => {
+  // myTask[0].completed = !myTask[0].completed;
+  arr[Idx].completed = !arr[Idx].completed;
 };
 
 const check = (e) => {
@@ -73,17 +96,23 @@ const check = (e) => {
     } else {
       text.classList.remove('line');
     }
-    tasksArray[e.target.getAttribute('data_id')].completed = checked;
+    checkItem(tasksArray, e.target);
   }
   updateLS(tasksArray);
 };
 
+const clearItems = (arr) => {
+  arr.filter((task) => (task.completed === false));
+};
+
 const clear = () => {
-  tasksArray = tasksArray.filter((task) => (task.completed === false));
+  clearItems();
   updateLS(tasksArray);
   populateList(tasksArray);
 };
 
-export { addTask, editTasks, check, clear };
+export {
+  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task, clearItems, checkItem,
+};
 
 populateList(tasksArray);
