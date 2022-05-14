@@ -50,7 +50,7 @@ describe('updating an item completed status', () => {
 });
 
 describe('clear completed tasks', () => {
-  let myTasks = [
+  const myTasks = [
     {
       description: 'Play outside',
       completed: false,
