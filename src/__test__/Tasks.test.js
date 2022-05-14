@@ -3,7 +3,7 @@ import {
 } from '../Tasks.js';
 
 describe('Tests Add and Remove item', () => {
-  test('add item to array', () => {
+  test('Add Item To Array', () => {
     addItem('Play');
     const expected = {
       completed: false,
@@ -19,8 +19,9 @@ describe('Tests Add and Remove item', () => {
   });
 });
 
-describe('updating an item completed status', () => {
-  const myTask = [
+describe('Edit/Update/Completed', () => {
+  // eslint-disable-next-line prefer-const
+  let myTask = [
     {
       completed: false,
       description: 'Play outside',
@@ -36,21 +37,22 @@ describe('updating an item completed status', () => {
   document.body.innerHTML = '<p class="description" id="para"></p>';
   const para = document.getElementById('para');
 
-  test('is task completed', () => {
+  test('Editing The Task Description', () => {
     para.innerHTML = 'Hello';
     editTasks(para, myTask[0], myTask);
     expect(myTask[0].description).not.toMatch('Play outside');
-  });
-
-  test('is task completed', () => {
-    para.innerHTML = 'Hello';
-    editTasks(para, myTask[0], myTask);
     expect(myTask[0].description).toMatch('Hello');
   });
-});
 
-describe('clear completed tasks', () => {
-  const myTasks = [
+  test('Update Item Completed', () => {
+    // myTask[0].completed = false;
+    // call a function
+    expect(myTask[0].completed).toBeTruthy();
+    // call a function
+    expect(myTask[0].completed).toBeFalsy();
+  });
+
+  myTask = [
     {
       description: 'Play outside',
       completed: false,
@@ -70,9 +72,9 @@ describe('clear completed tasks', () => {
     },
   ];
 
-  test('Check array length after clearing completed tasks', () => {
-    clearItems(myTasks);
+  test('Clearing Completed Tasks', () => {
+    clearItems(myTask);
     expect(clearItems).toHaveLength(1);
-    expect(myTasks[0].index).toBe(1);
+    expect(myTask[0].index).toBe(1);
   });
 });

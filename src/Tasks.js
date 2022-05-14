@@ -82,6 +82,10 @@ const editTasks = (text, task, tasksArray) => {
   });
 };
 
+const checkItem = (e) => {
+  tasksArray[e.target.getAttribute('data_id')].completed = e.target;
+};
+
 const check = (e) => {
   if (e.target.className.includes('checkbox')) {
     const { checked } = e.target;
@@ -91,10 +95,11 @@ const check = (e) => {
     } else {
       text.classList.remove('line');
     }
-    tasksArray[e.target.getAttribute('data_id')].completed = checked;
+    checkItem(e);
   }
   updateLS(tasksArray);
 };
+
 const clearItems = (arr) => {
   arr.filter((task) => (task.completed === false));
 };
