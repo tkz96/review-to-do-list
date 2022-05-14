@@ -1,4 +1,6 @@
-import { addItem, deleteItem, tasksArray, editTasks, check, clear, Task } from '../Tasks.js';
+import {
+  addItem, deleteItem, tasksArray, editTasks,
+} from '../Tasks.js';
 
 describe('Tests Add and Remove item', () => {
   test('add item to array', () => {
@@ -28,21 +30,21 @@ describe('updating an item completed status', () => {
       completed: false,
       description: 'gym',
       index: 1,
-    }
+    },
   ];
 
   document.body.innerHTML = '<p class="description" id="para"></p>';
   const para = document.getElementById('para');
 
-  test('is task completed', () =>{
+  test('is task completed', () => {
     para.innerHTML = 'Hello';
-    editTasks(para, myTask[0],myTask);
+    editTasks(para, myTask[0], myTask);
     expect(myTask[0].description).not.toMatch('Play outside');
   });
 
-  test('is task completed', () =>{
+  test('is task completed', () => {
     para.innerHTML = 'Hello';
-    editTasks(para, myTask[0],myTask);
+    editTasks(para, myTask[0], myTask);
     expect(myTask[0].description).toMatch('Hello');
   });
 });

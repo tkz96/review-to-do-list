@@ -66,7 +66,6 @@ function addTask() {
   clearData();
 }
 
-
 const editTasks = (text, task, tasksArray) => {
   // if (e.target.className.includes('task-text')) {
   //   tasksArray[e.target.getAttribute('data_id')].description = e.target.innerText;
@@ -81,7 +80,7 @@ const editTasks = (text, task, tasksArray) => {
       text.setAttribute('contenteditable', 'false');
     }
   });
-}
+};
 
 const check = (e) => {
   if (e.target.className.includes('checkbox')) {
@@ -99,7 +98,7 @@ const check = (e) => {
 
 const clearItems = () => {
   tasksArray = tasksArray.filter((task) => (task.completed === false));
-}
+};
 
 const clear = () => {
   clearItems();
@@ -108,7 +107,7 @@ const clear = () => {
 };
 
 export {
-  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task
+  addItem, tasksArray, deleteItem, addTask, editTasks, check, clear, Task,
 };
 
 populateList(tasksArray);
